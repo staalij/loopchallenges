@@ -368,18 +368,27 @@ end
 #puts ghappy("ggggggg    g")
 
 def merge(list,list2)
-    usmerged = list + list2
     i = 0
-    merged = 0
-    while i < usmerged.length - 1
-        if usmerged[i] > usmerged[i + 1]
-            merged = usmerged.insert(i, usmerged.delete_at(i+1))
-            i = 0
+    merged = []
+    finalmerged = []
+    usmerged = []
+    while i < list.length - 1
+        if list[i] > list2[i]
+            merged.push(list2[i] , list[i])
+        else
+            merged.push(list[i] , list2[i])
         end
         i += 1
+        sort = true
     end
-    return merged
+    (merged.length - 1).times do |i|
+        if merged[i] <= merged[i+1]
+            usmerged.push(merged[i],merged[i+1])
+        else
+            usmerged.push(merged[i+1],merged[i])
+        end
+    end
+    return usmerged
 end
 
-print merge([8,3,5,2],[1,2,4,8]) 
-print merge([8,3,5,7],[9,1,8,5])
+#print merge([8,3,5,2],[1,2,4,8]) 
