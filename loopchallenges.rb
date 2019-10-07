@@ -230,7 +230,7 @@ def leftshift(list)
     shifted = []
     i = 0
     j = list.length - 1
-    shifted.push(list[j],list[(i+1)..(j-1)],list[i])
+    shifted.push(list[j] + list[(i+1)..(j-1)] + list[i])
     return shifted
 end
 
